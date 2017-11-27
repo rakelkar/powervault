@@ -18,8 +18,6 @@ Initialize-Vault
 # add or update an item (prompts for secret)
 Update-Vault -key MY_SECRET
 
-# enter vault (applies to env vars scoped the shell process)
+# enter vault (applies secrets to env vars scoped to the shell process)
 Enter-Vault
-```
-
 ```
