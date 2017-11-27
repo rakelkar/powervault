@@ -2,6 +2,9 @@
 Scripts to load and save encrypted strings into environment variables
 
 ```
+# add fns to context
+. .\vault.ps1
+
 # set the VAULT_PATH env var for the current user
 Set-Vault-Path -vaultPath c:\myvault.json
 

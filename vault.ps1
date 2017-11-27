@@ -25,7 +25,7 @@ function Update-Vault {
     param(
         [string] $vaultPath = $env:VAULT_PATH,
         [bool] $applyValue = $false,
-        [string] $key,
+        [Parameter(Mandatory=$true)][string] $key,
         [string] $plainText
         )
 
@@ -35,7 +35,15 @@ function Update-Vault {
 
     $updated = $false
     $now=Get-Date -format "dd-MMM-yyyy HH:mm"
-    $secret = Set-EncryptedData($plainText)
+
+    if([string]::IsNullOrEmpty($plainText)) {
+        Write-Host "Enter secret value: "
+        $secureString = Read-Host -AsSecureString
+        $secret = ConvertFrom-SecureString -SecureString $secureString
+    } else {
+        $secret = Set-EncryptedData($plainText)
+    }
+
     $contents = Get-Content $vaultPath | Out-String | ConvertFrom-Json
     $contents.lastUpdated = $now
     foreach($obj in $contents.secrets) {
