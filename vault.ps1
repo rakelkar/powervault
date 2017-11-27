@@ -17,7 +17,7 @@ function Get-EncryptedData {
 
 # set the vault path env variable for the current user
 function Set-Vault-Path {
-    param([string] $vaultPath)
+    param([Parameter(Mandatory=$true)][string] $vaultPath)
     [Environment]::SetEnvironmentVariable("VAULT_PATH", $vaultPath, "User")
 }
 
