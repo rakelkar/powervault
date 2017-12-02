@@ -1,4 +1,4 @@
-# powervault
+# powervault :diamond_shape_with_a_dot_inside::guardsman::star:
 Scripts to load and save encrypted values in a local file vault and apply them as PROCESS environment variables
 
 Uses Windows DPAPI to encrypt at rest.
