@@ -19,6 +19,7 @@ function Get-EncryptedData {
 function Set-Vault-Path {
     param([Parameter(Mandatory=$true)][string] $vaultPath)
     [Environment]::SetEnvironmentVariable("VAULT_PATH", $vaultPath, "User")
+    [Environment]::SetEnvironmentVariable("VAULT_PATH", $vaultPath, "Process")
 }
 
 function Update-Vault {
